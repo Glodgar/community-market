@@ -6,6 +6,10 @@
                 <router-link to="/">Home</router-link>
                 <router-link to="/about">About</router-link>
                 <router-link to="/login">Login</router-link>
+                <router-link to="/account">Account</router-link>
+                <router-link to="/myOffers">My offers</router-link>
+                <router-link to="/newOffer">New offer</router-link>
+                <router-link to="/rules">Rules</router-link>
 
             </div>
         </div>

@@ -22,7 +22,27 @@ const routes = [
 		path: '/login',
 		name: 'Login',
 		component: () => import('../views/Login')
-	}
+	},
+	{
+		path: '/account',
+		name: 'Account',
+		component: () => import('../views/Account')
+	},
+	{
+		path: '/myOffers',
+		name: 'MyOffers',
+		component: () => import('../views/myOffers')
+	},
+	{
+		path: '/newOffer',
+		name: 'NewOffer',
+		component: () => import('../views/newOffer')
+	},
+	{
+		path: '/rules',
+		name: 'Rules',
+		component: () => import('../views/Rules')
+	},
 ]
 
 const router = new VueRouter({

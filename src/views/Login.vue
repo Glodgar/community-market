@@ -3,13 +3,20 @@
         <form @submit.prevent="login">
             <div class="row">
                 <div class="twelve columns">
+                    <!-- <div class="loginRegister">
+                        <button v-on:click="showLogin">login</button>
+                        <button v-on:click="showRegister">register</button>
+                    </div> -->
 
                     <label for="email">email</label>
-                    <input class="u-full-width" type="text" id="email" name="email">
+                    <input class="u-full-width" type="text" id="email" name="email" v-model="credential.email">
 
                     <label for="password">password</label>
-                    <input class="u-full-width" type="text" id="password" name="password">
+                    <input class="u-full-width" type="text" id="password" name="password" v-model="credential.password">
 
+                    <div class="twelve columns action">
+                        <input type="submit" value="Login">
+                    </div>
                 </div>
             </div>
         </form>
@@ -18,7 +25,35 @@
 
 <script>
     export default {
-        
+        name: 'login',
+
+        data() {
+            return {
+                credential: {
+                    email: '',
+                    password: '',
+                },
+                state: {
+                    isState: 'login'
+                }
+            }
+        },
+
+        methods: {
+            login() {
+                console.log(this.credential);
+            },
+
+            showLogin() {
+                this.state.isState = "login";
+                console.log("test", this.state.isState);
+            },
+
+            showRegister() {
+                this.state.isState= "register";
+                console.log("test",this.state.isState);
+            }
+        },
     }
 </script>
 
@@ -31,10 +66,52 @@
     }
 
     .row {
-        // background-color: rgba(40,40, 40, 1);
         border-radius: 25px;
         border: 1px solid rgba(250, 150, 0, 1);
         padding: 50px;
+        padding-top: 26px;
+    }
+
+    input {
+        border-radius: 0px;
+        background: transparent;
         
+        border: none;
+        // border-bottom: 1px solid;
+        border-bottom: 1px solid rgba(0, 0, 0, 1);
+        // border-bottom: 1px solid rgba(0, 0, 0, 1);
+    }
+
+    input:focus {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid rgba(250, 150, 0, 1);
+    }
+
+    input[type="submit"] {
+        margin-top: 50px;
+        background-color: rgba(250, 150, 0, 1);
+        color: rgba(0, 0, 0, 1);
+        border: none;
+    }
+
+    .action {
+        display: flex;
+        justify-content: center;
+    }
+
+    .loginRegister {
+        display: flex;
+        justify-content: center;
+    }
+
+    .loginRegister button {
+        width: 100px;
+        padding: 0;
+        border: none;
+    }
+    
+    .loginRegister button:hover {
+        color: rgba(250, 150, 0, 1);
     }
 </style>

@@ -33,7 +33,7 @@ export default {
 
         font-weight: bold;
         line-height: 50px;
-
+        border: none;
         border-bottom: 1px solid rgba(250, 150, 0, 1);
     }
 

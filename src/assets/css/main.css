@@ -3,5 +3,15 @@ body
   margin: 0;
   padding: 0;
   background-color: rgba(255, 255, 255, 1);
+  /* background-color: rgba(50, 50, 50, 1); */
   color: rgba(0, 0, 0, 1);
+}
+
+.elements-color {
+  border-color: rgba(250, 150, 0, 1);
+}
+
+.red {
+  border-color: 1px solid rgba(250, 150, 0, 1);
+  font-size: 50px;
 }

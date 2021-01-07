@@ -52,6 +52,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'newOffer',
 
@@ -74,6 +76,7 @@
         methods: {
             postOffer() {
                 console.log(this.offer);
+                axios.post('')
             }
         }
     }

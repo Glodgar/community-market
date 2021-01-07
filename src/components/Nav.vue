@@ -5,11 +5,14 @@
 
                 <router-link to="/">Home</router-link>
                 <router-link to="/about">About</router-link>
-                <router-link to="/login">Login</router-link>
+                <router-link to="/rules">Rules</router-link>
                 <router-link to="/account">Account</router-link>
                 <router-link to="/myOffers">My offers</router-link>
                 <router-link to="/newOffer">New offer</router-link>
-                <router-link to="/rules">Rules</router-link>
+                <router-link to="/register">Register</router-link>
+                <router-link to="/login">Login</router-link>
+
+                <div class="logout"  v-on:click="logout">Logout</div>
 
             </div>
         </div>
@@ -18,8 +21,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-    name: 'Nav'
+    name: 'Nav',
+
+    computed: mapGetters(['isLogged']),
+
+    methods: {
+        logout() {
+            console.log('Wylogowano');
+            this.$store.dispatch('logout');
+        }
+    }
 }
 </script>
 
@@ -43,6 +57,23 @@ export default {
         right: 0;
 
         position: fixed;
+    }
+
+    .logout {
+        display: block;
+        color: #000000;
+        padding: 0 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        line-height: 50px;
+        width: 100px;
+        text-align: center;
+        border: none;
+    }
+
+    .logout:hover {
+        color: rgba(250, 150, 0, 1);
     }
 
     .nav a {

@@ -19,6 +19,9 @@
 
                     <label for="email">email</label>
                     <input class="u-full-width" type="text" id="email" name="email" >
+
+                    <label for="password">password</label>
+                    <input class="u-full-width" type="text" id="password" name="password">
                 </div>
 
                 <div class="twelve columns action">
@@ -41,6 +44,7 @@
                     phone: null,
                     email: null,
                     adress: null,
+                    password: ''
                 },
             }
         },

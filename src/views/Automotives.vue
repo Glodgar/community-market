@@ -5,18 +5,18 @@
             <div class="twelve columns">
                 <ul>
                     <li v-for="item in results" v-bind:key="item.id" v-on:click="getOrder(item)">
-                        <p> Title: {{ item.title }} </p>
-                        <p> Brand: {{ item.brand }} </p>
-                        <p> Modell: {{ item.modell }} </p>
-                        <p> Fuel: {{ item.fuel }} </p>
-                        <p> Gearbox: {{ item.gearbox }} </p>
-                        <p> Body: {{ item.body }} </p>
-                        <p> Engine Power: {{ item.enginePower }} </p>
-                        <p> Color: {{ item.color }} </p>
-                        <p> England: {{ item.isEngland ? "tak" : "nie" }} </p>
-                        <p> Broken: {{ item.isBroken ? "tak" : "nie" }} </p>
-                        <p> Phone: {{ item.contactNumber }} </p>
-                        <p> Description: {{ item.description }} </p>
+                        <!-- <p> Title: {{ item.title }} </p> -->
+                        <p> Marka: {{ item.brand }} </p>
+                        <p> Model: {{ item.modell }} </p>
+                        <p> Paliwo: {{ item.fuel }} </p>
+                        <p> Skrzynia: {{ item.gearbox }} </p>
+                        <p> Nadwozie: {{ item.body }} </p>
+                        <p> Moc: {{ item.enginePower }} </p>
+                        <p> Kolor: {{ item.color }} </p>
+                        <p> Kierownica po prawej: {{ item.isEngland ? "tak" : "nie" }} </p>
+                        <p> Powypadkowy: {{ item.isBroken ? "tak" : "nie" }} </p>
+                        <!-- <p> Phone: {{ item.contactNumber }} </p> -->
+                        <!-- <p> Description: {{ item.description }} </p> -->
                     </li>
                 </ul>
             </div>

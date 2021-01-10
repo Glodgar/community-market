@@ -6,35 +6,35 @@
                     <label for="categories">Kategoria</label>
                     <select class="u-full-width" name="category" id="category" v-model="results.category">
                         <option disabled selected value="">Wybierz kategorie</option>
-                        <option value="SO">Samochody osobowe</option>
-                        <option value="SC">Samochody ciężarowe</option>
+                        <option value="Samochody osobowe">Samochody osobowe</option>
+                        <option value="Samochody ciężarowe">Samochody ciężarowe</option>
                     </select>
 
                     <label for="brands">Marka</label>
                     <select class="u-full-width" name="brands" id="brands" v-model="results.brand">
                         <option disabled selected value="">Wybierz marke</option>
-                        <option value="VM">Volkswagen</option>
-                        <option value="BM">BMW</option>
-                        <option value="OO">Opel</option>
-                        <option value="TO">Toyota</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Opel">Opel</option>
+                        <option value="Toyota">Toyota</option>
                     </select>
 
                     <label for="models">Model</label>
                     <select class="u-full-width" name="models" id="models" v-model="results.modell">
                         <option disabled selected value="">Wybierz model</option>
-                        <option value="PA">Passat</option>
-                        <option value="S1">Seria 1</option>
-                        <option value="CO">Corsa</option>
-                        <option value="AV">Avensis</option>
+                        <option value="Passat">Passat</option>
+                        <option value="Seria 1">Seria 1</option>
+                        <option value="Corsa">Corsa</option>
+                        <option value="Avensis">Avensis</option>
                     </select>
 
                     <label for="fuels">Rodzaj paliwa</label>
                     <select class="u-full-width" name="fuels" id="fuels" v-model="results.fuel">
-                        <option value="D">Diesel</option>
-                        <option value="P">Benzyna</option>
-                        <option value="L">LPG</option>
-                        <option value="H">Hybryda</option>
-                        <option value="E">Elektryczny</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Benzyna">Benzyna</option>
+                        <option value="LPG">LPG</option>
+                        <option value="Hybryda">Hybryda</option>
+                        <option value="Elektryczny">Elektryczny</option>
                     </select>
 
                     <label for="phone">Telefon kontaktowy</label>
@@ -54,25 +54,25 @@
                     <label for="gearbox">Rodzaj skrzyni biegów</label>
                     <select class="u-full-width" name="gearbox" id="gearbox" v-model="results.gearbox">
                         <option selected disabled value="">Wybierz skrzynię</option>
-                        <option value="M">Manualna</option>
-                        <option value="A">Automatyczna</option>
+                        <option value="Manualna">Manualna</option>
+                        <option value="Automatyczna">Automatyczna</option>
                     </select>
 
                     <label for="body">Rodzaj nadwozia</label>
                     <select class="u-full-width" name="body" id="body" v-model="results.body">
                         <option selected disabled value="">Wybierz nadwozie</option>
-                        <option value="K">Kombi</option>
-                        <option value="S">Sedan</option>
-                        <option value="H">Hatchback</option>
+                        <option value="Kombi">Kombi</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="Hatchback">Hatchback</option>
                     </select>
 
                     <label for="countries">Kraj pochodzenia</label>
                     <select class="u-full-width" name="countries" id="countries" v-model="results.countryOrigin">
                         <option selected disabled value="">Wybierz kraj</option>
-                        <option value="pl">Polska</option>
-                        <option value="de">Niemcy</option>
-                        <option value="nl">Niderlandy</option>
-                        <option value="uk">Wielka Brytania</option>
+                        <option value="Polska">Polska</option>
+                        <option value="Niemcy">Niemcy</option>
+                        <option value="Niderlandy">Niderlandy</option>
+                        <option value="Wielka Brytania">Wielka Brytania</option>
                     </select>
                     
                     <label for="distance">Przebieg</label>
@@ -105,14 +105,14 @@
                 </div>
 
                 <div class="action">
-                    <input type="submit" value="Dodaj">
+                    <input type="submit" value="Aktualizuj">
+                    <input type="button" value="Usuń" v-on:click="deleteOffer">
                 </div>
 
             </div>
         </form>
     </div>
 </template>
-
 <script>
     import axios from 'axios';
 
@@ -135,8 +135,11 @@
 
         methods: {
             updateData() {
-                console.log(this.offer);
-                
+                axios.patch(`http://188.68.236.33:8000/automotive/${this.id}`, this.results);
+            },
+
+            deleteOffer() {
+                axios.delete(`http://188.68.236.33:8000/automotive/${this.id}`);
             }
         }
     }

@@ -8,9 +8,9 @@
                     <select class="u-full-width" name="category" id="category" v-model="offer.category">
                         <option disabled selected value="">Wybierz kategorie</option>
                         <option value="IT">IT</option>
-                        <option value="KK">Kadra Kierownicz</option>
-                        <option value="AD">Administracja serwerami</option>
-                        <option value="AB">Dla absolwentów</option>
+                        <option value="Kadra kierownicza">Kadra Kierownicza</option>
+                        <option value="Administracja serwerami">Administracja serwerami</option>
+                        <option value="Dla absolwentów">Dla absolwentów</option>
                     </select>
                     
                     <label for="phone">Telefon kontaktowy</label>
@@ -38,6 +38,7 @@
 
 <script>
     import axios from 'axios';
+    // import router from '../router';
 
     export default {
         name: 'newOffer',
@@ -56,7 +57,8 @@
         methods: {
             postOffer() {
                 console.log(this.offer);
-                axios.post('', this.offer)
+                axios.post('http://188.68.236.33:8000/jobs/', this.offer);
+                // router.push({path:'/jobs'});
             }
         }
     }

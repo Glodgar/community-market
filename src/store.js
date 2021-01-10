@@ -23,7 +23,7 @@ const actions = {
         console.log("credential", credential);
         axios.post('http://188.68.236.33:8000/login/', credential)
             .then(res => {
-                localStorage.setItem('accessToken', res.data.accessToken);
+                localStorage.setItem('accessToken', "Token " + res.data.token);
 
                 commit(types.LOGIN);
                 

@@ -9,7 +9,7 @@
 
                 <div class="six columns">
                     <label for="phone">Numer kontaktowy</label>
-                    <input class="u-full-width" type="text" id="phone" name="phone" v-model="offer.phone">
+                    <input class="u-full-width" type="text" id="phone" name="phone" v-model="offer.contactNumber">
                 </div>
 
                 <div class="twelve columns">
@@ -28,6 +28,7 @@
 
 <script>
     import axios from 'axios';
+    // import router from '../router';
 
     export default {
         name: 'newOffer',
@@ -36,7 +37,7 @@
             return {
                 offer: {
                     title: null,
-                    phone: null,
+                    contactNumber: null,
                     description: null,
                 },
             }
@@ -45,7 +46,8 @@
         methods: {
             postOffer() {
                 console.log(this.offer);
-                axios.post('http://127.0.0.1/8000/books/', this.offer);
+                axios.post('http://188.68.236.33:8000/books/', this.offer);
+                // router.push({path:'/books'});
             }
         }
     }

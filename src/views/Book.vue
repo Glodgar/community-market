@@ -20,6 +20,7 @@
 
                 <div class="action">
                     <input type="submit" value="Aktualizuj">
+                    <input type="button" value="Usuń" v-on:click="deleteOffer">
                 </div>
 
             </div>
@@ -29,6 +30,7 @@
 
 <script>
     import axios from 'axios';
+    // import router from '../router';
 
     export default {
         name: 'Book',
@@ -51,7 +53,12 @@
         methods: {
             updateData() {
                 console.log("po aktualizacji: ", this.results);
-                axios.put(`http://188.68.236.33:8000/books/${this.id}`, this.results);
+                axios.patch(`http://188.68.236.33:8000/books/${this.id}`, this.results);
+            },
+
+            deleteOffer() {
+                axios.delete(`http://188.68.236.33:8000/books/${this.id}`);
+                // router.push({path:'/books'});
             }
         }
     }
@@ -88,5 +95,13 @@
     .action {
         text-align: center;
         padding: 20px;
+    }
+
+    .action input {
+        margin: 20px;
+    }
+
+    .action input[type="button"]{
+        background-color:rgba(250, 0, 0, 1);
     }
 </style>

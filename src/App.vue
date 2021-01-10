@@ -25,7 +25,7 @@
 
 		mounted() {
 			axios.interceptors.request.use((config) => {
-				config.headers.Authorization = "test" + localStorage.getItem('accessToken' || '');
+				config.headers.Authorization = localStorage.getItem('accessToken');
 				return config;
 			});
 

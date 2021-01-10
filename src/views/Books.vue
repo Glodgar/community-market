@@ -6,9 +6,9 @@
                 
                 <ul>
                     <li v-for="item in results" v-bind:key="item.id" v-on:click="getOrder(item)">
-                        <p> Title: {{ item.title }} </p>
-                        <p> Description: {{ item.description }} </p>
-                        <p> Phone: {{ item.contactNumber }} </p>
+                        <p> {{ item.title }} </p>
+                        <p> {{ item.description }} </p>
+                        <p> {{ item.contactNumber }} </p>
                     </li>
                 </ul>
             </div>

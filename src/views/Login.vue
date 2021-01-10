@@ -3,11 +3,11 @@
         <form @submit.prevent="login">
             <div class="row">
                 <div class="twelve columns">
-                    <label for="email">email</label>
-                    <input class="u-full-width" type="text" id="email" name="email" v-model="credential.email">
+                    <label for="username">username</label>
+                    <input class="u-full-width" type="text" id="username" name="username" v-model="credential.username">
 
                     <label for="password">password</label>
-                    <input class="u-full-width" type="text" id="password" name="password" v-model="credential.password">
+                    <input class="u-full-width" type="password" id="password" name="password" v-model="credential.password">
 
                     <div class="twelve columns action">
                         <input type="submit" value="Login">
@@ -25,8 +25,8 @@
         data() {
             return {
                 credential: {
-                    email: '',
-                    password: '',
+                    "username": "",
+                    "password": ""
                 },
             }
         },

@@ -9,8 +9,8 @@
                     <label for="password">password</label>
                     <input class="u-full-width" type="text" id="password" name="password" v-model="credential.password">
 
-                    <input type="checkbox" id="rules">
-                    <label for="rules">I accept rules...</label>
+                    <!-- <input type="checkbox" id="rules">
+                    <label for="rules">I accept rules...</label> -->
 
                     <div class="twelve columns action">
                         <input type="submit" value="Login">

@@ -4,15 +4,18 @@
             <div class="nav">
 
                 <router-link to="/">Home</router-link>
-                <router-link to="/about">About</router-link>
-                <router-link to="/rules">Rules</router-link>
-                <router-link to="/account">Account</router-link>
-                <router-link to="/myOffers">My offers</router-link>
-                <router-link to="/newOffer">New offer</router-link>
-                <router-link to="/register">Register</router-link>
-                <router-link to="/login">Login</router-link>
+                <!-- <router-link to="/about">About</router-link> -->
+                <!-- <router-link to="/rules">Rules</router-link> -->
+                <router-link to="/books">Książki</router-link>
+                <router-link to="/jobs">Oferty pracy</router-link>
+                <router-link to="/automotives">Samochody</router-link>
+                <!-- <router-link v-if="isLogged" to="/account">Konto</router-link> -->
+                <router-link v-if="isLogged" to="/myOffers">Moje ogłoszenia</router-link>
+                <router-link v-if="isLogged" to="/newOffer">Dodaj ogłoszenie</router-link>
+                <!-- <router-link v-if="!isLogged" to="/register">Rejestracja</router-link> -->
+                <router-link v-if="!isLogged" to="/login">Zaloguj</router-link>
 
-                <div class="logout"  v-on:click="logout">Logout</div>
+                <div class="logout"  v-if="isLogged" v-on:click="logout">Logout</div>
 
             </div>
         </div>
@@ -41,7 +44,7 @@ export default {
     .fixedBar {
         height: 50px;
         width: 100%;
-        background-color: rgba(250, 250, 250, 0.5);
+        background-color: rgba(250, 250, 250, 0.8);
         position: fixed;
         z-index: 10;
 
@@ -52,10 +55,9 @@ export default {
     }
 
     .nav {
-        height: 50px;
+        height: 20px;
         display: flex;
-        right: 0;
-
+        
         position: fixed;
     }
 
@@ -70,6 +72,7 @@ export default {
         width: 100px;
         text-align: center;
         border: none;
+        cursor: pointer;
     }
 
     .logout:hover {
@@ -84,8 +87,8 @@ export default {
         text-transform: uppercase;
         font-weight: bold;
         line-height: 50px;
-        width: 100px;
         text-align: center;
+        align-items: center;
     }
 
     .nav a:hover {

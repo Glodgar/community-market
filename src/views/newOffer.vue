@@ -1,90 +1,77 @@
 <template>
     <div class="container">
-        <form @submit.prevent="postOffer">
-            <div class="row">
-                <div class="row form">
-                    <div class="six columns">
-                        <label for="name">name</label>
-                        <input class="u-full-width wiadomosc" type="text" id="name" name="name" v-model="offer.name">
-                        
-                        <label for="phone">phone</label>
-                        <input class="u-full-width wiadomosc" type="text" id="phone" name="phone" v-model="offer.phone">
-                        
-                        <label for="adress">adress</label>
-                        <input class="u-full-width wiadomosc" type="text" id="adress" name="adress" v-model="offer.adress">
-                    </div>
+        <p class="descr"> Wybierz kategorię dla której chcesz dodać ogłoszenie </p>
+        <div class="choose">
+            <input type="radio" id="book" name="template" v-model="template" value='book' v-on:click=test>
+            <label for="book">Książki</label>
 
-                    <div class="six columns">
-                        <label for="lastName">last name</label>
-                        <input class="u-full-width wiadomosc" type="text" id="lastName" name="lastName" v-model="offer.lastName">
+            <input type="radio" id="automotive" name="template" v-model="template" value='automotive' v-on:click=test>
+            <label for="automotive">Motoryzacja</label>
 
-                        <label for="email">email</label>
-                        <input class="u-full-width wiadomosc" type="text" id="email" name="email" v-model="offer.email">
-                    </div>
-                </div>
+            <input type="radio" id="job" name="template" v-model="template" value='job' v-on:click=test>
+            <label for="job">Praca</label>
+        </div>
 
-                <div class="row form">
-                    <div class="six columns">
-                        <label for="category">category</label>
-                        <input class="u-full-width wiadomosc" type="text" id="category" name="category" v-model="offer.category">
+       <div class="1" v-if="template=='book'">
+           <Books />
+       </div>
 
-                        <label for="item/service">item/service</label>
-                        <input class="u-full-width wiadomosc" type="text" id="itemService" name="itemService" v-model="offer.itemService">
+        <div class="2" v-if="template=='automotive'">
+            <Automotive />
+        </div>
 
-                        <label for="price">price</label>
-                        <input class="u-full-width wiadomosc" type="text" id="price" name="price" v-model="offer.price">
-
-                        <div class="importFile">
-                            <input type="file" multiple>
-                        </div>
-                    </div>
-
-                    <div class="six columns">
-                        <label for="wiadomosc">Wiadomosc</label>
-                        <textarea class="u-full-width wiadomosc" name="wiadomosc" id="wiadomosc" cols="30" rows="50" v-model="offer.message"></textarea>
-
-                        <input type="submit" value="add offer">
-                    </div>
-                </div>
-            </div>
-        </form>
+        <div class="3" v-if="template=='job'">
+            <Job />
+        </div>
+    
     </div>
 </template>
 
 <script>
-    import axios from 'axios';
-
+    import Books from '../components/newBook';
+    import Automotive from '../components/newAutomotive';
+    import Job from '../components/newJob';
+    
     export default {
         name: 'newOffer',
 
+        components: {
+            Books,
+            Automotive,
+            Job
+		},
+
         data() {
             return {
-                offer: {
-                    name: null,
-                    lastName: null,
-                    phone: null,
-                    email: null,
-                    adress: null,
-                    category: null,
-                    itemService: null,
-                    price: null,
-                    message: null,
-                },
+                template: 'book'
             }
         },
 
         methods: {
-            postOffer() {
-                console.log(this.offer);
-                axios.post('')
+            test() {
+                console.log(this.template);
             }
         }
     }
 </script>
 
 <style scoped>
+    .descr {
+        display: flex;
+        justify-content: center;
+    }
+
     .container {
         margin-top: 50px; 
+    }
+
+    .choose {
+        display: flex;
+        justify-content: center;
+    }
+
+    .choose input {
+        margin-left: 50px;
     }
     
     .row {

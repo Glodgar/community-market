@@ -20,7 +20,8 @@ const getters = {
 
 const actions = {
     login({commit}, credential) {
-        axios.post('http://localhost:8080/#/login', credential)
+        console.log("credential", credential);
+        axios.post('http://188.68.236.33:8000/login/', credential)
             .then(res => {
                 localStorage.setItem('accessToken', res.data.accessToken);
 

@@ -15,7 +15,7 @@
                 <!-- <router-link v-if="!isLogged" to="/register">Rejestracja</router-link> -->
                 <router-link v-if="!isLogged" to="/login">Zaloguj</router-link>
 
-                <div class="logout"  v-if="isLogged" v-on:click="logout">Logout</div>
+                <div class="logout"  v-if="isLogged" v-on:click="logout">Wyloguj</div>
 
             </div>
         </div>

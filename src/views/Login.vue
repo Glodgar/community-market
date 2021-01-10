@@ -3,14 +3,14 @@
         <form @submit.prevent="login">
             <div class="row">
                 <div class="twelve columns">
-                    <label for="username">username</label>
+                    <label for="username">nazwa</label>
                     <input class="u-full-width" type="text" id="username" name="username" v-model="credential.username">
 
-                    <label for="password">password</label>
+                    <label for="password">hasło</label>
                     <input class="u-full-width" type="password" id="password" name="password" v-model="credential.password">
 
                     <div class="twelve columns action">
-                        <input type="submit" value="Login">
+                        <input type="submit" value="Zaloguj">
                     </div>
                 </div>
             </div>

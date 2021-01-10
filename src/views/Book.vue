@@ -4,17 +4,17 @@
         <form @submit.prevent="updateData">
             <div class="row">
                 <div class="six columns">
-                    <label for="title">title</label>
+                    <label for="title">Tytuł</label>
                     <input class="u-full-width" type="text" id="title" name="title" v-model="results.title">
                 </div>
 
                 <div class="six columns">
-                    <label for="phone">phone</label>
+                    <label for="phone">Numer kontaktowy</label>
                     <input class="u-full-width" type="text" id="phone" name="phone" v-model="results.contactNumber">
                 </div>
 
                 <div class="twelve columns">
-                    <label for="description">description</label>
+                    <label for="description">Opis</label>
                     <textarea class="u-full-width" name="description" id="description" cols="30" rows="10" v-model="results.description"></textarea>
                 </div>
 
